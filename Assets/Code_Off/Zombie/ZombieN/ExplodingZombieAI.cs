@@ -258,7 +258,10 @@ public class ExplodingZombieAI : MonoBehaviour
             }
         }
 
-        // 4. Ẩn model + hủy
+        // 4. Camera shake
+        CameraShake.ShakeExplosion();
+
+        // 5. Ẩn model + hủy
         foreach (Renderer r in renderers)
         {
             if (r != null) r.enabled = false;

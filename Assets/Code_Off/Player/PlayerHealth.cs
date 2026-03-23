@@ -76,6 +76,14 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDead) return;
 
+        // Bất tử trong Last Stand — vẫn nhận damage nhưng không chết
+        if (LastStandManager.IsInLastStand)
+        {
+            damaged = true;
+            CameraShake.ShakeHit();
+            return;
+        }
+
         damaged = true;
         float finalDamage = amount;
 
@@ -89,7 +97,8 @@ public class PlayerHealth : MonoBehaviour
 
         if (healthSlider != null) healthSlider.value = currentHealth;
 
-        // Debug.Log("Bị cắn! Máu còn: " + currentHealth);
+        // Camera shake khi bị đánh
+        CameraShake.ShakeHit();
 
         if (currentHealth <= 0)
         {
@@ -113,14 +122,29 @@ public class PlayerHealth : MonoBehaviour
     }
     void Die()
     {
+        // Thử Last Stand trước khi chết thật
+        if (LastStandManager.Instance != null && LastStandManager.Instance.TryActivate())
+        {
+            // Last Stand kích hoạt → cho máu = 1 để không chết
+            currentHealth = 1f;
+            isDead = false;
+            if (healthSlider != null) healthSlider.value = currentHealth;
+            Debug.Log("LAST STAND KÍCH HOẠT!");
+            return;
+        }
+
+        ForceDie();
+    }
+
+    /// <summary>Chết thật sự (không qua Last Stand)</summary>
+    public void ForceDie()
+    {
         isDead = true;
         Debug.Log("GAME OVER!");
 
         // 1. Hiện bảng Game Over
         if (gameOverPanel != null)
-        {
             gameOverPanel.SetActive(true);
-        }
 
         // 2. Hiện con trỏ chuột để bấm nút
         Cursor.lockState = CursorLockMode.None;
@@ -143,8 +167,17 @@ public class PlayerHealth : MonoBehaviour
         // 5. Dừng thời gian game
         Time.timeScale = 0;
 
-        // 4. Vô hiệu hóa súng (để không bắn được nữa)
+        // 6. Vô hiệu hóa súng
         PlayerShooting shooting = GetComponentInChildren<PlayerShooting>();
         if (shooting != null) shooting.enabled = false;
+    }
+
+    /// <summary>Hồi sinh từ Last Stand</summary>
+    public void ForceRevive(float healAmount)
+    {
+        isDead = false;
+        currentHealth = healAmount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (healthSlider != null) healthSlider.value = currentHealth;
     }
 }

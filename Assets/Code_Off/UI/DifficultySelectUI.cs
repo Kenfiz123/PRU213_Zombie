@@ -29,6 +29,27 @@ public class DifficultySelectUI : MonoBehaviour
             return;
         }
 
+        // Nếu có MainMenuUI → đợi menu đóng (MainMenuUI sẽ bật lại script này)
+        if (FindObjectOfType<MainMenuUI>() != null)
+        {
+            enabled = false;
+            return;
+        }
+
+        ShowDifficultySelect();
+    }
+
+    void OnEnable()
+    {
+        // Được bật lại bởi MainMenuUI sau khi menu đóng
+        if (panelRoot == null && !hasSelected && !DifficultyManager.HasSelected)
+        {
+            ShowDifficultySelect();
+        }
+    }
+
+    void ShowDifficultySelect()
+    {
         BuildUI();
 
         // Pause game

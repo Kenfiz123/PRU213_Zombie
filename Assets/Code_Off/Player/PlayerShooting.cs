@@ -180,6 +180,11 @@ public class PlayerShooting : MonoBehaviour
                 if (target != null)
                 {
                     float finalDamage = damage * damageMultiplier * DifficultyManager.PlayerDamageMul;
+
+                    // Last Stand: giảm damage pistol
+                    if (LastStandManager.IsInLastStand && LastStandManager.Instance != null)
+                        finalDamage *= LastStandManager.Instance.GetDamageMultiplier();
+
                     if (isHeadshot)
                     {
                         finalDamage *= headshotMultiplier;
@@ -199,6 +204,15 @@ public class PlayerShooting : MonoBehaviour
             }
             else
             {
+                // 3b. Xử lý Trúng Thùng Nổ
+                ExplosiveBarrel barrel = hit.transform.GetComponent<ExplosiveBarrel>();
+                if (barrel == null) barrel = hit.transform.GetComponentInParent<ExplosiveBarrel>();
+                if (barrel != null)
+                {
+                    float finalDamage = damage * damageMultiplier * DifficultyManager.PlayerDamageMul;
+                    barrel.TakeDamage(finalDamage);
+                }
+
                 // 4. Xử lý Trúng Tường/Đất (Hiệu ứng Tia lửa)
                 if (impactEffect != null)
                 {

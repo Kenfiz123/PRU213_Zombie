@@ -130,9 +130,6 @@ public class CardHotbarManager : MonoBehaviour
         // ƯU TIÊN: rương / vật phẩm gần Player → không dùng skill
         if (InteractionManager.HasNearbyInteraction) return;
 
-        // Đang cầm súng → không dùng skill
-        if (IsHoldingGun()) return;
-
         UseCard(selectedSlot);
     }
 

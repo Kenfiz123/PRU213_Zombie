@@ -921,7 +921,11 @@ public class U_BossAI : MonoBehaviour
             if (hit.CompareTag("Player"))
             {
                 PlayerHealth pHealth = hit.GetComponent<PlayerHealth>();
-                if (pHealth != null) { pHealth.TakeDamage(dmgAmount); }
+                if (pHealth != null)
+                {
+                    pHealth.TakeDamage(dmgAmount);
+                    CameraShake.ShakeBossHit();
+                }
 
                 AllyHealth aHealth = hit.GetComponent<AllyHealth>();
                 if (aHealth != null) { aHealth.TakeDamage(dmgAmount); }

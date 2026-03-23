@@ -11,6 +11,9 @@ public class WeaponSwitching : MonoBehaviour
 
     void Update()
     {
+        // Không cho đổi vũ khí khi đang Last Stand
+        if (LastStandManager.IsInLastStand) return;
+
         int previousSelectedWeapon = selectedWeapon;
 
         // 1. LĂN CHUỘT LÊN (Đổi súng kế tiếp)
@@ -40,7 +43,7 @@ public class WeaponSwitching : MonoBehaviour
         }
     }
 
-    void SelectWeapon()
+    public void SelectWeapon()
     {
         int i = 0;
         // Duyệt qua tất cả súng con nằm trong WeaponHolder

@@ -27,6 +27,12 @@ public static class DifficultyManager
     public static float BossHealthMul { get; private set; } = 1f;
     public static float BossDamageMul { get; private set; } = 1f;
 
+    public static void Reset()
+    {
+        HasSelected = false;
+        Current = Difficulty.Normal;
+    }
+
     public static void SetDifficulty(Difficulty diff)
     {
         Current = diff;

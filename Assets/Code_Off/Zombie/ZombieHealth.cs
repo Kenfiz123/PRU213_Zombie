@@ -87,7 +87,11 @@ public class ZombieHealth : MonoBehaviour
             VictoryManager.ShowVictory();
         }
 
-        // 7. Xóa xác sau 5 giây
+        // 7. Last Stand kill tracking
+        if (LastStandManager.IsInLastStand && LastStandManager.Instance != null)
+            LastStandManager.Instance.OnZombieKilled();
+
+        // 8. Xóa xác sau 5 giây
         Destroy(gameObject, 5f);
     }
 }

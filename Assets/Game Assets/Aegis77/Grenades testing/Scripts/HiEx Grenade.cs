@@ -84,6 +84,8 @@ namespace Aegis.GrenadeSystem.HiEx
 
             ApplyDamage();
 
+            CameraShake.ShakeExplosion();
+
             Destroy(gameObject);
         }
 
@@ -134,6 +136,16 @@ namespace Aegis.GrenadeSystem.HiEx
                         if (DamageNumberManager.Instance != null)
                             DamageNumberManager.Instance.Spawn(col.transform.position + Vector3.up * 1.5f, dmg, false);
                     }
+                }
+
+                // Gây damage cho Barrel nổ
+                ExplosiveBarrel barrel = col.GetComponent<ExplosiveBarrel>();
+                if (barrel == null) barrel = col.GetComponentInParent<ExplosiveBarrel>();
+                if (barrel != null)
+                {
+                    barrel.TakeDamage(dmg);
+                    damaged.Add(id);
+                    continue;
                 }
 
                 // Gây damage cho Player / Ally

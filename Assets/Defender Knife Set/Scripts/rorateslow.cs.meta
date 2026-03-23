@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 3664d9fd3b5e19e4aae480238d3bebb8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 154808
+  packageName: Defender Knife and Defender Knife Woodland
+  packageVersion: 2018.4.9f1
+  assetPath: Assets/Defender Knife Set/Scripts/rorateslow.cs
+  uploadId: 336372

@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "FireAction",
+    "maps": [
+        {
+            "name": "Fire",
+            "id": "407a8bdf-dc1e-4275-b36b-f27aef14fc57",
+            "actions": [
+                {
+                    "name": "Shoots",
+                    "type": "Button",
+                    "id": "fb054983-591c-42d9-bcc1-b45a7dd8164e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a9ef6307-23f2-4f63-9449-fb826ac1c26b",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoots",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

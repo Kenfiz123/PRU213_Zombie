@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3d005de967adf364a9ab6c430b8b0c22
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 223556
+  packageName: 'Oil Barrel : Rust'
+  packageVersion: 1.0
+  assetPath: Assets/Barrel_Rust/Scene/Demo Scene.unity
+  uploadId: 504999

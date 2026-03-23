@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 58de4f3b5b84db048a42d21220065df9
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 223556
+  packageName: 'Oil Barrel : Rust'
+  packageVersion: 1.0
+  assetPath: Assets/Barrel_Rust/Prefab/Barret_Default.prefab
+  uploadId: 504999

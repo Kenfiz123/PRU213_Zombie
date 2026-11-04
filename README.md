@@ -1,71 +1,71 @@
 # ZombieShoot
 
-ZombieShoot là game bắn súng sinh tồn góc nhìn thứ nhất viết bằng C# trên Unity. Người chơi vượt qua năm đợt zombie, thu thập vật phẩm và nâng cấp vũ khí để đánh bại boss cuối trận.
+ZombieShoot is a first-person survival shooter built with Unity and C#. Fight through five waves of zombies, scavenge supplies, and upgrade your weapons to take down the final boss.
 
-## Chạy dự án
+## Getting started
 
-**Yêu cầu** · Git, Unity Hub và Unity Editor **6000.3.11f1**. [Tải đúng phiên bản Unity](https://unity.com/releases/editor/whats-new/6000.3.11f1) · [Phiên bản trong repo](ProjectSettings/ProjectVersion.txt)
+You’ll need Git, Unity Hub, and Unity Editor **6000.3.11f1**. [Download Unity](https://unity.com/releases/editor/whats-new/6000.3.11f1) · [Project version](ProjectSettings/ProjectVersion.txt)
 
 ```bash
 git clone https://github.com/Kenfiz123/PRU213_Zombie.git
 cd PRU213_Zombie
 ```
 
-1. Trong Unity Hub, vào **Projects → Add → Add project from disk**. Chọn thư mục `PRU213_Zombie` chứa `Assets`, `Packages` và `ProjectSettings`.
-2. Mở dự án bằng Unity `6000.3.11f1`. Đợi Unity tải package và import tài nguyên ở lần mở đầu tiên.
-3. Trong cửa sổ **Project**, mở [Assets/Scenes/SampleScene.unity](Assets/Scenes/SampleScene.unity) rồi nhấn **Play**.
-4. Từ menu chính, bắt đầu trận và chọn độ khó.
+1. In Unity Hub, go to **Projects → Add → Add project from disk**. Select the `PRU213_Zombie` folder containing `Assets`, `Packages`, and `ProjectSettings`.
+2. Open the project with Unity `6000.3.11f1`. On first launch, wait for Unity to download the packages and import the assets.
+3. In the **Project** window, open [Assets/Scenes/SampleScene.unity](Assets/Scenes/SampleScene.unity) and press **Play**.
+4. Select **CHƠI GAME** (Play) in the main menu, then choose a difficulty.
 
-## Cách chơi
+## How to play
 
-- Chọn một trong bốn độ khó **Dễ**, **Bình thường**, **Khó** và **Asian**. Độ khó thay đổi các yếu tố như số lượng zombie, máu địch, sát thương người chơi và tốc độ xuất hiện của rương.
-- Dọn hết zombie để qua đợt tiếp theo. Trận đấu có ba giai đoạn gồm **1, 2 và 2 đợt**, với zombie cận chiến, bắn xa và tự nổ. Boss xuất hiện sau đợt thứ năm.
-- Mở rương để tìm đạn, vật phẩm hồi máu, giáp hoặc thẻ kỹ năng. Thẻ có thể hồi đầy máu, hồi đầy giáp hoặc triệu hồi đồng đội.
-- Dùng điểm kiếm được khi hạ zombie để nâng cấp vũ khí, cải thiện chỉ số nhân vật hoặc mua lựu đạn. Hạ boss để thắng trận.
+- Choose **Easy** (*Dễ*), **Normal** (*Bình thường*), **Hard** (*Khó*), or **Asian**. Difficulty affects enemy count and health, the damage you deal, and how often chests spawn.
+- Defeat every zombie to advance to the next wave. The five waves are split into three stages with one, two, and two waves respectively. You’ll face melee, ranged, and explosive zombies before the boss appears.
+- Open chests to find ammunition, healing items, armor, and skill cards. Cards can fully restore health or armor, or summon an ally.
+- Spend points from zombie kills on weapon upgrades, character stats, or grenades. Defeat the boss to win.
 
-## Điều khiển
+## Controls
 
-| Phím / thao tác | Hành động |
+| Input | Action |
 | --- | --- |
-| `W` `A` `S` `D` | Di chuyển |
-| Di chuột | Xoay góc nhìn, ngắm |
-| `Shift` trái | Chạy nhanh |
-| `Space` | Nhảy |
-| `C` khi đang di chuyển | Lướt né theo hướng di chuyển |
-| Lăn chuột | Đổi giữa pistol, AK và dao |
-| Chuột trái | Bắn hoặc chém nhẹ bằng dao |
-| Chuột phải | Chém mạnh bằng dao |
-| `R` | Nạp đạn |
-| `G` | Ném lựu đạn nếu còn trong kho |
-| `F` | Bật hoặc tắt đèn pin |
-| `E` | Mở rương, nhặt vật phẩm hoặc dùng thẻ đã chọn |
-| `1` `2` `3` | Chọn ô thẻ kỹ năng, sau đó nhấn `E` để dùng |
-| Giữ `Tab` | Mở túi đồ |
-| `B` | Mở bảng nâng cấp |
-| `H` | Mở hướng dẫn trong trận |
+| `W` `A` `S` `D` | Move |
+| Mouse movement | Look and aim |
+| Left `Shift` | Sprint |
+| `Space` | Jump |
+| `C` while moving | Dash in the direction of movement |
+| Scroll wheel | Cycle through the pistol, AK, and knife |
+| Left mouse button | Fire or perform a light knife attack |
+| Right mouse button | Perform a heavy knife attack |
+| `R` | Reload |
+| `G` | Throw a grenade if you have one |
+| `F` | Toggle the flashlight |
+| `E` | Open a chest, pick up an item, or use the selected skill card |
+| `1` `2` `3` | Select a skill card slot, then press `E` to use it |
+| Hold `Tab` | Open the inventory |
+| `B` | Open the upgrade menu |
+| `H` | Open the in-game guide |
 
-Khi đứng gần rương hoặc vật phẩm, `E` ưu tiên tương tác với đối tượng đó.
+`E` prioritizes nearby chests and items over skill cards.
 
-## Build bản chơi
+## Build the game
 
-1. Vào **File → Build Profiles** và chọn nền tảng đích, ví dụ **Windows**. Nếu nền tảng yêu cầu thêm module, cài module đó cho phiên bản Editor đang dùng qua Unity Hub.
-2. Kiểm tra `Assets/Scenes/SampleScene.unity` đang được bật trong danh sách scene của build. Đây là scene đã bật trong [cấu hình mặc định](ProjectSettings/EditorBuildSettings.asset).
-3. Nhấn **Build** hoặc **Build And Run**. Có thể lưu kết quả vào `Builds/`, thư mục đã được Git bỏ qua.
+1. Open **File → Build Profiles** and choose a target platform, such as **Windows**. If Unity requests an additional module, install it through Unity Hub for the Editor version you’re using.
+2. Check that `Assets/Scenes/SampleScene.unity` is enabled in the build’s scene list. The scene is enabled in the [default build settings](ProjectSettings/EditorBuildSettings.asset).
+3. Select **Build** or **Build And Run**. You can save the output to `Builds/`, which Git ignores.
 
-[Tài liệu Build Profiles của Unity 6.3](https://docs.unity.com/en-us/engine/6000.3/manual/building-and-publishing/build-settings/build-profiles)
+[Unity 6.3 Build Profiles documentation](https://docs.unity.com/en-us/engine/6000.3/manual/building-and-publishing/build-settings/build-profiles)
 
-## Cấu trúc dự án
+## Project structure
 
-| Đường dẫn | Nội dung |
+| Path | Contents |
 | --- | --- |
-| [`Assets/Scenes/`](Assets/Scenes/) | Scene chính và dữ liệu NavMesh |
-| [`Assets/Code_Off/Player/`](Assets/Code_Off/Player/) | Di chuyển, vũ khí, chỉ số, túi đồ và kỹ năng người chơi |
-| [`Assets/Code_Off/Zombie/`](Assets/Code_Off/Zombie/) | Điều phối đợt, AI zombie và boss |
-| [`Assets/Code_Off/Chest/`](Assets/Code_Off/Chest/) | Rương, vật phẩm và logic nhặt đồ |
-| [`Assets/Code_Off/UI/`](Assets/Code_Off/UI/) | Menu, độ khó, HUD và bảng nâng cấp |
-| [`Assets/Code_Off/Environment/`](Assets/Code_Off/Environment/) | Thùng nổ và logic tạo thùng |
-| [`Assets/Code_Off/Optimization/`](Assets/Code_Off/Optimization/) | Object pooling, LOD và tiện ích hiệu năng |
-| [`Assets/Prefab/`](Assets/Prefab/) | Prefab zombie, boss, rương, vật phẩm và hiệu ứng |
-| [`Packages/`](Packages/) và [`ProjectSettings/`](ProjectSettings/) | Package Unity và cấu hình Editor, input, build |
+| [`Assets/Scenes/`](Assets/Scenes/) | Main scene and NavMesh data |
+| [`Assets/Code_Off/Player/`](Assets/Code_Off/Player/) | Movement, weapons, character stats, inventory, and skills |
+| [`Assets/Code_Off/Zombie/`](Assets/Code_Off/Zombie/) | Wave management, zombie AI, and boss behavior |
+| [`Assets/Code_Off/Chest/`](Assets/Code_Off/Chest/) | Chests, loot, and pickups |
+| [`Assets/Code_Off/UI/`](Assets/Code_Off/UI/) | Menus, difficulty settings, HUD, and upgrade menu |
+| [`Assets/Code_Off/Environment/`](Assets/Code_Off/Environment/) | Explosive barrels and barrel spawning |
+| [`Assets/Code_Off/Optimization/`](Assets/Code_Off/Optimization/) | Object pooling, level of detail, and performance utilities |
+| [`Assets/Prefab/`](Assets/Prefab/) | Prefabs for zombies, the boss, chests, items, and effects |
+| [`Packages/`](Packages/) and [`ProjectSettings/`](ProjectSettings/) | Unity packages and Editor, input, and build settings |
 
-Để chỉnh số đợt, nhóm zombie hoặc vị trí sinh rương, mở `SampleScene` và xem component `WaveManager` trên `GameManager`. Cấu hình input hiện dùng **Both** vì các script sử dụng cả Input System và Input Manager.
+To change the wave count, enemy pools, or chest spawn points, open `SampleScene` and select the `WaveManager` component on `GameManager`. **Active Input Handling** is set to **Both** because the game uses Unity’s Input System and legacy Input Manager.
